@@ -1,10 +1,20 @@
 import './styles/homePage.css';
 import PlanetList from "../components/PlanetList.tsx";
+import PlanetType from "../models/planetType.ts";
 
-function HomePage() {
+type HomePageProps = {
+    planets: PlanetType[];
+};
+
+function HomePage({ planets }: HomePageProps) {
+    console.log("Home Page planets:", planets); //kontrolerar datan i consolen
+
     return (
         <section className="home-page">
-            <PlanetList />
+            <section className="page-wrapper home-wrapper">
+                <h1 className="home-title">{planets.length} Planets</h1>
+                <PlanetList planets={planets} />
+            </section>
         </section>
     );
 }
