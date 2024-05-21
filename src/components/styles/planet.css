@@ -13,6 +13,10 @@
     opacity: .8;
 }
 
+.planet-link {
+    text-decoration: none;
+}
+
 .planet-header {
     color: darkblue;
 }

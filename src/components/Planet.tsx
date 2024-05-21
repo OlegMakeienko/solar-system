@@ -1,5 +1,6 @@
 import './styles/planet.css';
 import PlanetType from "../models/planetType.ts";
+import {Link} from "react-router-dom";
 
 type PlanetProps = {
     planet: PlanetType;
@@ -22,6 +23,7 @@ function Planet({ planet }: PlanetProps) {
     const planetColor = planetColors[planet.name] || "#ffffff";
 
     return (
+        <Link to={"/planet/" + planet.id} className="planet-link">
         <article style={{ backgroundColor: planetColor }} className="planet">
             <div className="planet-header">
                 <h2>{planet.name}</h2>
@@ -30,6 +32,7 @@ function Planet({ planet }: PlanetProps) {
                 <h4>{planet.latinName}</h4>
             </div>
         </article>
+        </Link>
     );
 }
 
