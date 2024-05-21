@@ -12,7 +12,7 @@ function HomePage({ planets }: HomePageProps) {
     return (
         <section className="home-page">
             <section className="page-wrapper home-wrapper">
-                <h1 className="home-title">{planets.length} Planets</h1>
+                <h1 className="home-title">{planets.length} Planets in Solar System</h1>
                 <PlanetList planets={planets} />
             </section>
         </section>

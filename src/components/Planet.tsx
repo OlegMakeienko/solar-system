@@ -5,21 +5,31 @@ type PlanetProps = {
     planet: PlanetType;
 };
 
+const planetColors: { [key: string]: string } = {
+    "Merkurius": "#a9a9a9",
+    "Venus": "#e8c90d",
+    "Jorden": "#1f77b4",
+    "Mars": "#d9534f",
+    "Jupiter": "#f87e03",
+    "Saturnus": "#e3d9a8",
+    "Uranus": "#4aa3df",
+    "Neptunus": "#3746ff",
+    "Solen" : "#F87E03FF"
+};
+
+
 function Planet({ planet }: PlanetProps) {
+    const planetColor = planetColors[planet.name] || "#ffffff";
+
     return (
-        <div className="planet">
-            <h2>{planet.name} ({planet.latinName})</h2>
-            <p>{planet.desc}</p>
-            <ul>
-                <li>Distance: {planet.distance} km</li>
-                <li>Circumference: {planet.circumference} km</li>
-                <li>Rotation: {planet.rotation} days</li>
-                <li>Orbital Period: {planet.orbitalPeriod} days</li>
-                <li>Temperature: {planet.temp.day}°C day / {planet.temp.night}°C night</li>
-                <li>Type: {planet.type}</li>
-                <li>Moons: {planet.moons.length}</li>
-            </ul>
-        </div>
+        <article style={{ backgroundColor: planetColor }} className="planet">
+            <div className="planet-header">
+                <h2>{planet.name}</h2>
+            </div>
+            <div className="planet-cover">
+                <h4>{planet.latinName}</h4>
+            </div>
+        </article>
     );
 }
 
