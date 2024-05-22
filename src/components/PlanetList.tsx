@@ -16,7 +16,7 @@ function PlanetList({ planets }: PlanetsProps) {
     return (
         <section className="planet-list">
             {planets.map((planet) => (
-                <Planet planet={planet} key={planet.id} />
+                <Planet key={planet.id} planet={planet} />
             ))}
         </section>
     );

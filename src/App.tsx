@@ -47,7 +47,7 @@ function App() {
     <div className="app">
       <Routes>
           <Route path="/" element={<HomePage planets={planets} /> }/>
-          <Route path="/planet/:id" element={<PlanetPage /> }/>
+          <Route path="/planet/:id" element={<PlanetPage planets={planets} /> }/>
       </Routes>
     </div>
   )

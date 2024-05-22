@@ -7,8 +7,10 @@ type PlanetProps = {
 
 function PlanetDetails({ planet } : PlanetProps) {
     return (
-        <div className="planet-details">
-            <h2>{planet.name} ({planet.latinName})</h2>
+        <article className="planet-details">
+            <div className="planet-details-header">
+                <h2>{planet.name} ({planet.latinName})</h2>
+            </div>
             <p>{planet.desc}</p>
             <ul>
                 <li>Distance: {planet.distance} km</li>
@@ -19,7 +21,7 @@ function PlanetDetails({ planet } : PlanetProps) {
                 <li>Type: {planet.type}</li>
                 <li>Moons: {planet.moons.length}</li>
             </ul>
-        </div>
+        </article>
     );
 }
 

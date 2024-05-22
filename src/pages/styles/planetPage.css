@@ -1,0 +1,12 @@
+.planet-page {
+    padding-top: 6rem;
+    background-color: #092170;
+    width: 100%;
+    min-height: 100vh;
+    color: white;
+}
+
+.planet-wrapper {
+    display: flex;
+    gap: 4rem;
+}
