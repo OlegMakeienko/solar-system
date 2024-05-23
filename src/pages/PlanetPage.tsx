@@ -1,8 +1,9 @@
 import './styles/planetPage.css';
 import PlanetType from "../models/planetType.ts";
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import Planet from "../components/Planet.tsx";
+import HomeIcon from '../assets/galaxy-svgrepo-com.svg';
 
 type PlanetsProps = {
     planets : PlanetType[]
@@ -30,7 +31,10 @@ function PlanetPage({ planets } : PlanetsProps) {
     return (
         <section className="planet-page">
 
-            <section className="page-wrapper planet-wrapper">
+            <section className="planet-wrapper">
+                <Link to="/" className="home-link">
+                    <img src={HomeIcon} alt="Home" />
+                </Link>
                 { planet && (
                     <>
                         <section className="planet-image">
