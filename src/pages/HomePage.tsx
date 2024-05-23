@@ -11,7 +11,7 @@ function HomePage({ planets }: HomePageProps) {
 
     return (
         <section className="home-page">
-            <section className="page-wrapper home-wrapper">
+            <section className="home-wrapper">
                 <h1 className="home-title">Solaris Space Center</h1>
                 <div className="planet-list">
                     <PlanetList planets={planets}/>
