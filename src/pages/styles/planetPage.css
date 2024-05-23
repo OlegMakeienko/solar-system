@@ -8,5 +8,65 @@
 
 .planet-wrapper {
     display: flex;
-    gap: 4rem;
+    overflow: hidden;
+    gap: 2rem;
+}
+
+.planet-image {
+    display: flex;
+    justify-content: center;
+}
+
+.planet-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.planet-title {
+    font-family: "orbitron", sans-serif;
+    font-size: 2rem;
+    color: white;
+    display: flex;
+    text-align: left;
+}
+
+.spaced-text-1 {
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: darkgoldenrod;
+}
+
+.spaced-text-2 {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.spaced-text-3 {
+    font-weight: normal;
+    text-transform: none;
+    margin-top: 1rem;
+    color: gray;
+}
+
+.planet-info-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 1rem;
+}
+
+.planet-info-item {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.favorite-button {
+    padding: 1rem 2rem;
+    width: 300px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #092170;
+
 }

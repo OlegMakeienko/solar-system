@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 type PlanetProps = {
     planet: PlanetType;
+    size?: string;
 };
 
 const planetColors: { [key: string]: string } = {
@@ -31,9 +32,9 @@ const planetSizes: { [key: string]: string } = {
 };
 
 
-function Planet({ planet }: PlanetProps) {
+function Planet({ planet, size }: PlanetProps) {
     const planetColor = planetColors[planet.name] || "#ffffff";
-    const planetSize = planetSizes[planet.name] || "30px";
+    const planetSize = size ||  planetSizes[planet.name] || "30px";
 
     return (
         <Link to={"/planet/" + planet.id} className="planet-link">
