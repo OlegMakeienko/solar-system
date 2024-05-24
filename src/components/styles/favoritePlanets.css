@@ -1,0 +1,31 @@
+.favorite-page {
+    padding: 2rem;
+    background-color: #092170;
+    color: white;
+}
+
+.favorite-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.favorite-planet-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 150px;
+}
+
+.favorite-planet-item .planet-name {
+    margin-top: 0.5rem;
+    font-family: "orbitron", sans-serif;
+    font-size: 1rem;
+    color: darkgoldenrod;
+    text-align: center;
+}
