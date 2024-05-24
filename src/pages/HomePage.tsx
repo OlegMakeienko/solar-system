@@ -1,6 +1,8 @@
 import './styles/homePage.css';
 import PlanetList from "../components/PlanetList.tsx";
 import PlanetType from "../models/planetType.ts";
+import FavoriteIcon from "../assets/earth-svgrepo-com.svg";
+import {Link} from "react-router-dom";
 
 type HomePageProps = {
     planets: PlanetType[];
@@ -16,6 +18,10 @@ function HomePage({ planets }: HomePageProps) {
                 <div className="planet-list">
                     <PlanetList planets={planets}/>
                 </div>
+                <Link to="/favorite" className="favorite-link">
+                    my favorite planets
+                    <img src={FavoriteIcon} alt="Favorite"/>
+                </Link>
             </section>
         </section>
     );
