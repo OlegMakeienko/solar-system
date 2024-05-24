@@ -1,4 +1,4 @@
-import "./styles/planetDetails.css"
+import "./styles/planetInfo.css"
 import PlanetType from "../models/planetType.ts";
 
 type PlanetProps = {
