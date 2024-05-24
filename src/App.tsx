@@ -9,6 +9,21 @@ function App() {
 
     const [planets, setPlanets] = useState<PlanetType[]>([]);
     const [apiKey, setApiKey] = useState<string | null>(null);
+    const [favoriteList, setFavoriteList] = useState<PlanetType[]>([]);
+    const togglePlanetInFavoriteList = (id : number) => {
+        if(favoriteList.some(planet => planet.id === id)) {
+            console.log("Vill du radera den från favoriter?");
+            const filteredFavoriteList = favoriteList.filter(planet => planet.id !== id);
+            setFavoriteList(filteredFavoriteList);
+        } else {
+            console.log("Lägg den till favorite listan!");
+            setFavoriteList(favoriteList =>
+            {
+                const addedPlanet = planets.find(planet => planet.id === id);
+                return addedPlanet ? [...favoriteList, addedPlanet] : favoriteList;
+            });
+        }
+    }
 
     useEffect(() => {
         axios.post('https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/keys')
@@ -46,8 +61,12 @@ function App() {
   return (
     <div className="app">
       <Routes>
-          <Route path="/" element={<HomePage planets={planets} /> }/>
-          <Route path="/planet/:id" element={<PlanetPage planets={planets} /> }/>
+          <Route path="/" element={<HomePage planets={ planets } /> }/>
+          <Route path="/planet/:id" element={<PlanetPage planets={ planets }
+                                                         favoriteList={ favoriteList }
+                                                         togglePlanetInFavorite={ togglePlanetInFavoriteList }
+
+                                                /> }/>
       </Routes>
     </div>
   )
@@ -68,8 +87,7 @@ export default App
 //         rotation: 58,
 //         temp: { day: 427, night: -173 },
 //         type: "planet"
-//     },
-//     // Lägg till fler planeter här
+//     }
 // ];
 //
 // function App() {

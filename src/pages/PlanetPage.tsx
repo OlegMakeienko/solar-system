@@ -4,12 +4,15 @@ import {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
 import Planet from "../components/Planet.tsx";
 import HomeIcon from '../assets/galaxy-svgrepo-com.svg';
+import PlanetInfo from "../components/PlanetInfo.tsx";
 
 type PlanetsProps = {
-    planets : PlanetType[]
+    planets : PlanetType[],
+    favoriteList : PlanetType[],
+    togglePlanetInFavorite : (id : number) => void
 }
 
-function PlanetPage({ planets } : PlanetsProps) {
+function PlanetPage({ planets, favoriteList, togglePlanetInFavorite } : PlanetsProps) {
     const [planet, setPlanet] = useState<PlanetType>();
     const { id } = useParams();
 
@@ -24,13 +27,9 @@ function PlanetPage({ planets } : PlanetsProps) {
         console.log(planet);
     }, [planet]);
 
-    const addToFavorites = () => {
-        // Lägg till kod för att lägga till planeten som favorit
-    }
 
     return (
         <section className="planet-page">
-
             <section className="planet-wrapper">
                 <Link to="/" className="home-link">
                     <img src={HomeIcon} alt="Home" />
@@ -40,29 +39,12 @@ function PlanetPage({ planets } : PlanetsProps) {
                         <section className="planet-image">
                             <Planet planet={planet} size="200px" />
                         </section>
-                        <div className="planet-info">
-                            <h1 className="planet-title">{planet.name}</h1>
-                            <div className="planet-info-item spaced-text-1">{planet.latinName}</div>
-                            <div className="planet-info-item">{planet.desc}</div>
-                            <hr/>
-                            <section className="planet-info-section">
-                                <div className="planet-info-item spaced-text-2">
-                                    Omkrets <p className="spaced-text-3">{planet.circumference} km</p>
-                                </div>
-                                <div className="planet-info-item spaced-text-2">
-                                    Distans från solen <p className="spaced-text-3">{planet.distance} km</p>
-                                </div>
-                                <div className="planet-info-item spaced-text-2">
-                                    Max temp <p className="spaced-text-3">{planet.temp.day} °C</p>
-                                </div>
-                                <div className="planet-info-item spaced-text-2">
-                                    Min temp <p className="spaced-text-3">{planet.temp.night} °C</p>
-                                </div>
-                            </section>
-                            <hr/>
-                            <div className="planet-info-item">Månar: {planet.moons.join(", ")}</div>
-                            <button className="favorite-button" onClick={addToFavorites}>Lägg planeten som favorit</button>
-                        </div>
+                        <section className="planet-details">
+                            <PlanetInfo planet={ planet }
+                                        favoriteList={ favoriteList }
+                                        togglePlanetInFavoriteList={ togglePlanetInFavorite }
+                            />
+                        </section>
                     </>
                 )}
             </section>
