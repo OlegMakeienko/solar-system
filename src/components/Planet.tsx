@@ -44,12 +44,6 @@ function Planet({ planet, size }: PlanetProps) {
                 height : planetSize
                 }} className="planet"
             >
-                {/*<div className="planet-header">*/}
-                {/*    <h2>{planet.name}</h2>*/}
-                {/*</div>*/}
-                {/*<div className="planet-cover">*/}
-                {/*    <h4>{planet.latinName}</h4>*/}
-                {/*</div>*/}
             </article>
         </Link>
     );
