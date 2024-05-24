@@ -36,7 +36,7 @@ function PlanetInfo({ planet, favoriteList, togglePlanetInFavoriteList } : Plane
             <hr/>
             <div className="planet-info-item">Månar: {planet.moons.join(", ")}</div>
             <button onClick={ () => togglePlanetInFavoriteList(planet.id) } className="favorite-button">
-                { isInFavoriteList(planet.id) ? "Det är en av dina favorite planeter!" : "Lägg planeten som favorit" }
+                { isInFavoriteList(planet.id) ? "Det är en av dina favorite planeter! (Click för att ta bort från favoriter)" : "Lägg planeten som favorit" }
             </button>
         </div>
     );
