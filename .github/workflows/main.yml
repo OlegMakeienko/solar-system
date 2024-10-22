@@ -15,11 +15,11 @@ jobs:
     steps:
       # Check out the code from the repository
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Set up Node.js with the correct version
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18.x'  # You can specify the version of Node.js
 
@@ -34,11 +34,6 @@ jobs:
       # Run the build command (this will build the production version)
       - name: Build the project
         run: npm run build
-
-      # Optionally, you can add a step to run tests, if you have any.
-      # Example:
-      # - name: Run tests
-      #   run: npm test
 
       # Cache dependencies to speed up workflow runs
       - name: Cache Node.js modules
