@@ -3,6 +3,9 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true, // Aktivera JSX om du använder React
+    },
   },
   plugins: ['@typescript-eslint'],
   extends: [
@@ -12,11 +15,11 @@ module.exports = {
     'plugin:react-hooks/recommended',
   ],
   rules: {
-    // Ditt anpassade ESLint-regler här
+    // Dina anpassade regler här
   },
   settings: {
     react: {
-      version: 'detect', // För att automatiskt detektera React-versionen
+      version: 'detect', // Automatiskt detektera React-version
     },
   },
 };
