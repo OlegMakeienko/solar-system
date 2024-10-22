@@ -1,0 +1,28 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Bygg och deploya när du pushar till main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Hämta all historik för alla brancher
+
+      - name: Install dependencies and build
+        run: |
+          npm install
+          npm run build  # Bygg projektet, detta skapar dist-mappen
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Använd det för att autentisera
+          publish_dir: ./dist  # Den mapp som ska publiceras
+          publish_branch: gh-pages  # Ange branchen dit du vill deploya
